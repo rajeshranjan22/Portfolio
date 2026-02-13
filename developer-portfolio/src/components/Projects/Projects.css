@@ -1,0 +1,110 @@
+.projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 2rem;
+  overflow-x: hidden;
+}
+
+/* ---------- HEADER ---------- */
+
+.projects--header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.projects--header h1 {
+  margin-bottom: 40px;
+  font-size: 3.5rem;
+  font-family: var(--primaryFont);
+}
+
+/* ---------- BODY ---------- */
+
+.projects--body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.projects--bodyContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4.5rem;
+  width: 100%;
+}
+
+/* ---------- VIEW ALL ---------- */
+
+.projects--viewAll {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.projects--viewAll a {
+  text-decoration: none;
+}
+
+.projects--viewAll a button {
+  border: none;
+  outline: none;
+  width: 150px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 45px;
+  font-size: 1.05rem;
+  font-family: var(--primaryFont);
+  font-weight: 500;
+  padding-left: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.projects--viewAll a button:hover {
+  transform: translateY(-2px);
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media screen and (max-width: 992px) {
+  .projects--bodyContainer {
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .projects--header h1 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .projects--header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+
+  .projects--viewAll {
+    margin-top: 4rem;
+    justify-content: center;
+  }
+
+  .projects--viewAll a {
+    position: static;
+    transform: none;
+  }
+}

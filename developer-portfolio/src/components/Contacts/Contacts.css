@@ -1,0 +1,265 @@
+.contacts {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* ---------- SIDE IMAGE ---------- */
+
+.contacts--img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 280px;
+  pointer-events: none;
+}
+
+/* ---------- CONTAINER ---------- */
+
+.contacts--container {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 6rem 3rem;
+  width: 80%;
+  margin-top: 2rem;
+}
+
+.contacts--container > h1 {
+  font-family: var(--primaryFont);
+  font-size: 3.5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* ---------- BODY ---------- */
+
+.contacts-body {
+  display: flex;
+  width: 100%;
+  gap: 3rem;
+}
+
+/* ---------- FORM ---------- */
+
+.contacts-form {
+  flex: 0.4;
+  width: 100%;
+}
+
+.contacts-form form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.input-container {
+  width: 100%;
+  margin-bottom: 1.6rem;
+}
+
+.input-container label {
+  font-family: var(--primaryFont);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  display: inline-block;
+}
+
+.form-input,
+.form-message {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 20px;
+  outline: none;
+  resize: none;
+  font-family: var(--primaryFont);
+  font-weight: 500;
+}
+
+.form-input {
+  height: 50px;
+}
+
+.form-message {
+  height: 150px;
+}
+
+/* ---------- SUBMIT BUTTON ---------- */
+
+.submitBtn {
+  border: none;
+  width: 250px;
+  height: 50px;
+  border-radius: 50px;
+  font-family: var(--primaryFont);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.submitBtn:hover {
+  transform: scale(1.05);
+}
+
+.submit-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.send-icon {
+  font-size: 24px;
+  transform: translate(5px, -3px) rotate(-30deg);
+}
+
+.success-icon {
+  font-size: 26px;
+}
+
+/* ---------- DETAILS ---------- */
+
+.contacts-details {
+  flex: 0.6;
+  padding-left: 7rem;
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.personal-details {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  text-decoration: none;
+}
+
+.details-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.personal-details p {
+  margin-left: 1.5rem;
+  font-size: 18px;
+  font-family: var(--primaryFont);
+  font-weight: 500;
+  width: 50%;
+  word-break: break-word;
+}
+
+/* ---------- SOCIAL ---------- */
+
+.socialmedia-icons {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+.social-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
+  transition: transform 0.25s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media screen and (max-width: 992px) {
+  .contacts--img {
+    display: none;
+  }
+
+  .contacts--container {
+    width: 100%;
+    padding: 2rem 4rem;
+  }
+
+  .contacts--container > h1 {
+    font-size: 3rem;
+  }
+
+  .contacts-details {
+    padding-left: 4rem;
+  }
+
+  .personal-details p {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .contacts--container {
+    padding: 2rem;
+    align-items: center;
+  }
+
+  .contacts-body {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contacts-form {
+    width: 80%;
+  }
+
+  .contacts-details {
+    padding-left: 0;
+    padding: 1rem;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  .socialmedia-icons {
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  .personal-details p {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .contacts-form {
+    width: 100%;
+  }
+
+  .contacts--container > h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* ---------- ANIMATION ---------- */
+
+@keyframes fly {
+  20% {
+    transform: translateX(-10px);
+  }
+  70% {
+    transform: translateX(60px);
+  }
+  100% {
+    transform: translateX(80px);
+  }
+}
