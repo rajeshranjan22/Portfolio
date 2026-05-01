@@ -10,11 +10,15 @@ function BackToTop() {
 
   useEffect(() => {
     const toggleVisible = () => {
-      setVisible(document.documentElement.scrollTop > 300);
+      const scrolled = window.scrollY || document.documentElement.scrollTop;
+      setVisible(scrolled > 300);
     };
 
-    window.addEventListener("scroll", toggleVisible);
-    return () => window.removeEventListener("scroll", toggleVisible);
+    window.addEventListener("scroll", toggleVisible, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", toggleVisible);
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -25,7 +29,11 @@ function BackToTop() {
 
   return (
     <div className="backToTop">
-      <button onClick={scrollToTop} aria-label="Back to top">
+      <button
+        onClick={scrollToTop}
+        aria-label="Back to top"
+        title="Back to top"
+      >
         <IoIosArrowDropupCircle size={48} style={{ color: theme.tertiary }} />
       </button>
     </div>

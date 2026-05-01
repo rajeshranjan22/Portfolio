@@ -9,6 +9,11 @@ import { educationData } from "../../data/educationData";
 
 function Education() {
   const { theme } = useContext(ThemeContext);
+
+  const sortedEducation = [...educationData].sort(
+    (a, b) => b.startYear - a.startYear,
+  );
+
   return (
     <div
       className="education"
@@ -18,7 +23,8 @@ function Education() {
       <div className="education-body">
         <div className="education-description">
           <h1 style={{ color: theme.primary }}>Education</h1>
-          {educationData.map((edu) => (
+
+          {sortedEducation.map((edu) => (
             <EducationCard
               key={edu.id}
               id={edu.id}
@@ -29,8 +35,9 @@ function Education() {
             />
           ))}
         </div>
+
         <div className="education-image">
-          <img src={theme.eduimg} alt="" />
+          <img src={theme.eduimg} alt="education" />
         </div>
       </div>
     </div>

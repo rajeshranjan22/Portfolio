@@ -19,9 +19,36 @@
 .projectPage-header h1 {
   font-size: 4rem;
   font-family: var(--primaryFont);
+  color: var(--bg-secondary);
 }
 
-/* ---------- CONTENT ---------- */
+/* ---------- HOME ICON ---------- */
+
+.home-icon {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  padding: 7px;
+  border-radius: 50%;
+  font-size: 2rem;
+  cursor: pointer;
+
+  color: var(--bg-secondary);
+
+  box-shadow:
+    3px 3px 6px #ffffff40,
+    -3px -3px 6px #00000050;
+  box-sizing: content-box;
+
+  transition: all 0.3s ease;
+}
+
+.home-icon:hover {
+  color: var(--text-color);
+  transform: scale(1.1);
+}
+
+/* ---------- SEARCH ---------- */
 
 .projectPage-container {
   padding: 3rem 2rem;
@@ -35,6 +62,35 @@
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.search-input {
+  width: 40%;
+  height: 2.75rem;
+  border-radius: 20px;
+  padding: 0.95rem 1rem;
+
+  border: none;
+  outline: none;
+
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+
+  color: var(--text-color);
+  background-color: var(--bg-secondary);
+
+  box-shadow: var(--shadow-light);
+
+  transition: all 0.3s ease;
+}
+
+.search-input::placeholder {
+  color: var(--text-soft);
+}
+
+.search-input:focus {
+  transform: scale(1.02);
 }
 
 /* ---------- PROJECT GRID ---------- */
@@ -60,6 +116,10 @@
 
   .project-grid {
     gap: 3rem;
+  }
+
+  .search-input {
+    width: 350px;
   }
 }
 

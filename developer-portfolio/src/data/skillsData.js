@@ -1,18 +1,28 @@
 export const skillsData = [
-  "HTML",
-  "CSS",
+  // 🚀 Core Frontend
+  "React",
+  "Next JS",
   "JavaScript",
   "TypeScript",
-  "React",
-  "React Native",
-  "Next JS",
-  "Node JS",
-  "Express JS",
+
+  // 🎨 UI & Styling
   "Tailwind",
   "Material UI",
   "Chakra UI",
-  "SCSS",
+  "HTML",
+  "CSS",
+
+  // ⚙️ Backend
+  "Node JS",
+  "Express JS",
   "MongoDB",
+
+  // 📱 Additional
+  "React Native",
+
+  // 🧠 Problem Solving
   "DSA",
+
+  // 🛠 Tools
   "Figma",
 ];

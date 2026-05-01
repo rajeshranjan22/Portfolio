@@ -12,7 +12,6 @@ function ProjectPage() {
   const { theme } = useContext(ThemeContext);
   const [search, setSearch] = useState("");
 
-  // ✅ Page title (React 18 friendly)
   useEffect(() => {
     document.title = `${headerData.name} | Projects`;
   }, []);
@@ -24,19 +23,31 @@ function ProjectPage() {
   });
 
   return (
-    <div className="projectPage" style={{ backgroundColor: theme.secondary }}>
+    <div
+      className="projectPage"
+      style={{
+        backgroundColor: theme.secondary,
+
+        /* ✅ CSS variables */
+        "--text-color": theme.tertiary,
+        "--text-soft": theme.tertiary80,
+        "--bg-secondary": theme.secondary,
+        "--bg-primary": theme.primary,
+        "--shadow-light":
+          theme.type === "dark"
+            ? "inset 3px 3px 6px #ffffff10, inset -3px -3px 6px #00000060"
+            : "inset 3px 3px 6px #ffffffbd, inset -3px -3px 6px #00000030",
+      }}
+    >
       {/* ---------- HEADER ---------- */}
       <div
         className="projectPage-header"
         style={{ backgroundColor: theme.primary }}
       >
         <Link to="/">
-          <AiOutlineHome
-            className="home-icon"
-            style={{ color: theme.secondary }}
-          />
+          <AiOutlineHome className="home-icon" />
         </Link>
-        <h1 style={{ color: theme.secondary }}>Projects</h1>
+        <h1>Projects</h1>
       </div>
 
       {/* ---------- CONTENT ---------- */}
@@ -48,10 +59,6 @@ function ProjectPage() {
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search project..."
             className="search-input"
-            style={{
-              backgroundColor: theme.secondary,
-              color: theme.tertiary,
-            }}
           />
         </div>
 

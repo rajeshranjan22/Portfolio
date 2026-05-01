@@ -11,7 +11,13 @@ function SingleProject({ id, name, desc, tags, code, demo, image, theme }) {
     <motion.div
       key={id}
       className="singleProject"
-      style={{ backgroundColor: theme.primary400 }}
+      style={{
+        backgroundColor: theme.primary400,
+
+        "--btn-border": theme.tertiary,
+        "--btn-hover-bg": theme.secondary,
+        "--btn-hover-color": theme.primary,
+      }}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -32,10 +38,6 @@ function SingleProject({ id, name, desc, tags, code, demo, image, theme }) {
               rel="noreferrer"
               aria-label="Live demo"
               className="iconBtn"
-              style={{
-                border: `2px solid ${theme.tertiary}`,
-                color: theme.tertiary,
-              }}
             >
               <FaPlay />
             </a>
@@ -48,10 +50,6 @@ function SingleProject({ id, name, desc, tags, code, demo, image, theme }) {
               rel="noreferrer"
               aria-label="Source code"
               className="iconBtn"
-              style={{
-                border: `2px solid ${theme.tertiary}`,
-                color: theme.tertiary,
-              }}
             >
               <FaCode />
             </a>

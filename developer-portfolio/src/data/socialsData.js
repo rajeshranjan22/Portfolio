@@ -5,5 +5,5 @@ export const socialsData = {
   instagram:
     "https://www.instagram.com/rajesh_ranjan22/?igsh=cW9rMW95dnh4bHM%3D#",
   twitter: "https://x.com/Rajesh_Ranjan22",
-  youtube: "https://www.youtube.com/@rajesh_ranjan22",
+  leetcode: "https://leetcode.com/u/rajesh_ranjan22/",
 };

@@ -8,7 +8,6 @@ import { MdPhone } from "react-icons/md";
 import { FaUser, FaCode, FaFolderOpen, FaProjectDiagram } from "react-icons/fa";
 
 import Drawer from "@mui/material/Drawer";
-import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import { styled } from "@mui/material/styles";
 
@@ -16,9 +15,7 @@ import "./Navbar.css";
 import { headerData } from "../../data/headerData";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
-/* -------------------- Styled Components -------------------- */
-
-// Menu Icon
+// 🔥 Menu Icon
 const MenuIcon = styled(IoMenuSharp)(({ theme }) => ({
   fontSize: "2.5rem",
   color: theme.tertiary,
@@ -29,87 +26,74 @@ const MenuIcon = styled(IoMenuSharp)(({ theme }) => ({
   "&:hover": {
     color: theme.primary,
   },
-
-  "@media (max-width:600px)": {
-    fontSize: "2rem",
-  },
 }));
 
-// Drawer Container
-const DrawerWrapper = styled("div")(({ theme }) => ({
-  padding: "2rem",
-  width: "22rem",
-  height: "100%",
-  background: theme.secondary,
-  borderTopRightRadius: "40px",
-  borderBottomRightRadius: "40px",
-
-  "@media (max-width:600px)": {
-    width: "18rem",
-  },
-}));
-
-// Close Button
-const CloseButton = styled(IconButton)(({ theme }) => ({
+// 🔥 Close Icon (FIXED HOVER LIKE OLD CODE)
+const StyledCloseIcon = styled(CloseIcon)(({ theme }) => ({
   position: "absolute",
-  top: 20,
-  right: 20,
+  right: 40,
+  top: 40,
+  fontSize: "2rem",
+  cursor: "pointer",
   color: theme.primary,
+  transition: "color 0.2s",
 
   "&:hover": {
     color: theme.tertiary,
   },
+
+  "@media (max-width: 600px)": {
+    right: 20,
+    top: 20,
+  },
 }));
 
-// Drawer Item
+const DrawerWrapper = styled("div")(({ theme }) => ({
+  padding: "0 1.8rem",
+  width: "21rem",
+  height: "100%",
+  background: theme.secondary,
+  borderTopRightRadius: "40px",
+  borderBottomRightRadius: "40px",
+  position: "relative",
+  overflow: "hidden",
+
+  "@media (max-width: 600px)": {
+    borderTopRightRadius: "0px",
+    borderBottomRightRadius: "0px",
+  },
+}));
+
+// 🔥 Drawer Item
 const DrawerItem = styled("div")(({ theme }) => ({
-  margin: "2rem auto",
-  borderRadius: "80px",
+  margin: "1.5rem auto",
+  borderRadius: "78px",
   background: theme.secondary,
   color: theme.primary,
-  width: "90%",
+  width: "75%",
   height: "60px",
   display: "flex",
   alignItems: "center",
   justifyContent: "space-evenly",
   padding: "0 30px",
   border: `2px solid ${theme.primary}`,
-  transition: "all 0.25s ease",
+  transition: "0.2s",
 
   "&:hover": {
     background: theme.primary,
     color: theme.secondary,
   },
-
-  "@media (max-width:600px)": {
-    height: "55px",
-  },
 }));
 
-// Drawer Icon (THIS replaces your old drawerIcon class)
 const DrawerIcon = styled("span")({
   fontSize: "1.6rem",
-  display: "flex",
-  alignItems: "center",
-
-  "@media (max-width:600px)": {
-    fontSize: "1.35rem",
-  },
 });
 
-// Drawer Text
 const DrawerText = styled("span")({
-  fontFamily: "var(--primaryFont)",
-  width: "50%",
   fontSize: "1.3rem",
   fontWeight: 600,
-
-  "@media (max-width:600px)": {
-    fontSize: "1.125rem",
-  },
+  width: "50%",
 });
-
-/* -------------------- Component -------------------- */
 
 function Navbar() {
   const { theme, setHandleDrawer } = useContext(ThemeContext);
@@ -117,7 +101,7 @@ function Navbar() {
 
   const toggleDrawer = () => {
     setOpen((prev) => !prev);
-    setHandleDrawer();
+    setHandleDrawer((prev) => !prev);
   };
 
   const shortname = (name) => (name.length > 12 ? name.split(" ")[0] : name);
@@ -125,10 +109,10 @@ function Navbar() {
   const navItems = [
     { to: "/", label: "Home", icon: <IoHomeSharp /> },
     { to: "/about", label: "About", icon: <FaUser /> },
-    { to: "/education", label: "Education", icon: <HiDocumentText /> },
+    { to: "/projects", label: "Projects", icon: <FaProjectDiagram /> },
     { to: "/skills", label: "Skills", icon: <FaCode /> },
     { to: "/experience", label: "Experience", icon: <FaFolderOpen /> },
-    { to: "/projects", label: "Projects", icon: <FaProjectDiagram /> },
+    { to: "/education", label: "Education", icon: <HiDocumentText /> },
     { to: "/contact", label: "Contact", icon: <MdPhone /> },
   ];
 
@@ -144,19 +128,26 @@ function Navbar() {
         anchor="left"
         open={open}
         onClose={toggleDrawer}
+        className="drawer"
         disableScrollLock
+        ModalProps={{
+          BackdropProps: {
+            style: {
+              backdropFilter: "blur(20px)",
+              background: "rgba(33,33,33,0.15)",
+            },
+          },
+        }}
         PaperProps={{
-          sx: {
-            backgroundColor: theme.secondary,
-            borderTopRightRadius: "40px",
-            borderBottomRightRadius: "40px",
+          style: {
+            background: "transparent",
+            boxShadow: "none",
           },
         }}
       >
         <DrawerWrapper theme={theme}>
-          <CloseButton theme={theme} onClick={toggleDrawer}>
-            <CloseIcon fontSize="large" />
-          </CloseButton>
+          {/* ✅ FIXED CLOSE ICON */}
+          <StyledCloseIcon theme={theme} onClick={toggleDrawer} />
 
           <div className="navLink--container" onClick={toggleDrawer}>
             {navItems.map((item, index) => (

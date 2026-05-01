@@ -1,36 +1,56 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 
-import './About.css';
-import { ThemeContext } from '../../contexts/ThemeContext';
-import { aboutData } from '../../data/aboutData'
-
-
+import { ThemeContext } from "../../contexts/ThemeContext";
+import { aboutData } from "../../data/aboutData";
+import "./About.css";
 
 function About() {
+  const { theme } = useContext(ThemeContext);
 
-    const { theme } = useContext(ThemeContext);
-    return (
-        <div className="about" id="about" style={{backgroundColor: theme.secondary}}>
-            <div className="line-styling">
-              <div className="style-circle" style={{backgroundColor: theme.primary}}></div>
-              <div className="style-circle" style={{backgroundColor: theme.primary}}></div>
-              <div className="style-line" style={{backgroundColor: theme.primary}}></div>
-            </div>
-            <div className="about-body">
-                <div className="about-description">
-                    <h2 style={{color: theme.primary}}>{aboutData.title}</h2>
-                    <p style={{color:theme.tertiary80}}>{aboutData.description1}<br/><br/>{aboutData.description2}</p>
-                </div>
-                <div className="about-img">
-                    <img 
-                        src={aboutData.image === 1 ? theme.aboutimg1 : theme.aboutimg2}  
-                        alt="" 
-                    />
-                </div>
-            </div>
+  const { title, description1, description2, image } = aboutData;
+
+  return (
+    <section
+      id="about"
+      className="about"
+      style={{ backgroundColor: theme.secondary }}
+    >
+      {/* Top Line Styling */}
+      <div className="line-styling">
+        <span
+          className="style-circle"
+          style={{ backgroundColor: theme.primary }}
+        />
+        <span
+          className="style-circle"
+          style={{ backgroundColor: theme.primary }}
+        />
+        <span
+          className="style-line"
+          style={{ backgroundColor: theme.primary }}
+        />
+      </div>
+
+      {/* Main Content */}
+      <div className="about-body">
+        <div className="about-description">
+          <h2 style={{ color: theme.primary }}>{title}</h2>
+
+          <p style={{ color: theme.tertiary80 }}>{description1}</p>
+
+          <p style={{ color: theme.tertiary80 }}>{description2}</p>
         </div>
 
-    )
+        <div className="about-img">
+          <img
+            src={image === 1 ? theme.aboutimg1 : theme.aboutimg2}
+            alt="About illustration"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+  );
 }
 
-export default About
+export default About;

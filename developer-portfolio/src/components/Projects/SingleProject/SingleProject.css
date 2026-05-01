@@ -39,7 +39,6 @@
   transition: opacity 0.6s ease;
 }
 
-/* Hide image on hover */
 .singleProject:hover img {
   opacity: 0;
 }
@@ -61,21 +60,25 @@
   height: 40px;
   border-radius: 50%;
   text-decoration: none;
-  transition:
-    transform 0.3s ease,
-    background-color 0.3s ease;
+
+  border: 2px solid var(--btn-border);
+  color: var(--btn-border);
+  transition: all 0.2s ease;
 }
 
 .iconBtn:hover {
-  transform: scale(1.15);
+  background-color: var(--btn-hover-bg);
+  color: var(--btn-hover-color);
+  border: 2px solid var(--btn-hover-bg);
+  transform: scale(1.1);
 }
 
-/* Slide animation for second button */
+/* Slide animation */
 .singleProject:hover .project--showcaseBtn a:nth-child(2) {
   transform: translateX(-140px) scale(1.15);
 }
 
-/* ---------- DESCRIPTION PANEL ---------- */
+/* ---------- DESCRIPTION ---------- */
 
 .project--desc {
   position: absolute;

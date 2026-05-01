@@ -3,15 +3,8 @@ import { useContext } from "react";
 
 import { ThemeContext } from "./contexts/ThemeContext";
 import { Main, ProjectPage } from "./pages";
-import {
-  About,
-  BackToTop,
-  Contacts,
-  Education,
-  Experience,
-  Skills,
-} from "./components";
-import ScrollToTop from "./utils/ScrollToTop";
+import { BackToTop } from "./components";
+
 import "./App.css";
 
 function App() {
@@ -19,17 +12,14 @@ function App() {
 
   return (
     <div className={`app ${theme}`}>
-      <ScrollToTop />
-
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="/about" element={<Main />} />
         <Route path="/projects" element={<ProjectPage />} />
-        <Route path="/contact" element={<Contacts />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/education" element={<Education />} />
-        <Route path="/skills" element={<Skills />} />
-        <Route path="/experience" element={<Experience />} />
-
+        <Route path="/skills" element={<Main />} />
+        <Route path="/experience" element={<Main />} />
+        <Route path="/education" element={<Main />} />
+        <Route path="/contact" element={<Main />} />
         {/* fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
