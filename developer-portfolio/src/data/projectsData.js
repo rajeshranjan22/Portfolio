@@ -34,8 +34,8 @@ export const projectsData = [
     projectDesc:
       "Weather forecast systems and applications predict weather conditions based on multiple parameters.",
     tags: ["React", "React DOM", "React Icons"],
-    code: "https://github.com/rajeshranjan22/Weather_App",
-    demo: "https://chipper-alfajores-cd088c.netlify.app/",
+    // code: "https://github.com/rajeshranjan22/Weather_App",
+    // demo: "https://chipper-alfajores-cd088c.netlify.app/",
     image: three,
   },
   {
